@@ -1,6 +1,6 @@
 # alsa-motu-m2
 
-hese monkey-patch confs fix MOTU M2 / M4 audio issues under Alsa on Linux (tested on Arch).
+These monkey-patch confs fix MOTU M2 / M4 audio issues under Alsa on Linux (tested on Arch).
 
 ### Install
 
