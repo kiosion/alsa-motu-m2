@@ -1,8 +1,21 @@
 # alsa-motu-m2
+Some info about using the MOTU M2 audio interface with alsa on Linux.
 
-These monkey-patch confs fix MOTU M2 / M4 audio issues under Alsa on Linux (tested on Arch).
+## Info
+Issues with the M2 / M4 seem to be caused by a couple different issues -
+- `alsa-lib` / `lib32-alsa-lib` / `alsa-ucm-conf` > 1.27.1
+- A [kernel bug](https://bugzilla.kernel.org/show_bug.cgi?id=216500) present in verisons 5.19.8 and newer
+- Another kernel bug, affecting card detection at boot, requiring a power-cycle to fix (I've had luck [increasing msleep from 2000 to 4000](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/sound/usb/quirks.c?h=v5.15-rc1#n1128) to fix this)
 
-### Install
+These monkey-patch confs fix MOTU M2 / M4 audio issues specifically relating to the first point. 
+
+## Install
+
+<details><summary>Downgrade alsa-lib, lib32-alsa-lib, & alsa-ucm-conf to 1.2.7.1-1</code></summary>
+<br />
+
+- downgrade ([github](https://github.com/archlinux-downgrade/downgrade) / [AUR](https://aur.archlinux.org/packages/downgrade))
+<br /></details>
 
 <details><summary>Move <a href="src/MOTU"><code>src/MOTU/*</code></a> to <code>/usr/share/alsa/ucm2/USB-Audio/MOTU/*</code></summary>
 <p>
