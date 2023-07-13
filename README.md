@@ -4,7 +4,7 @@ Some info about using the MOTU M2 audio interface with alsa on Linux.
 ## Info
 Issues with the M2 / M4 seem to be caused by a couple different issues -
 - `alsa-lib` / `lib32-alsa-lib` / `alsa-ucm-conf` / `alsa-utils` > 1.27.1-1
-- A [kernel bug](https://bugzilla.kernel.org/show_bug.cgi?id=216500) present in verisons 5.19.8 and newer
+- ~~A [kernel bug](https://bugzilla.kernel.org/show_bug.cgi?id=216500) present in verisons 5.19.8 and newer~~ ([now fixed](https://bugzilla.kernel.org/attachment.cgi?id=301839&action=edit))
 - Another kernel bug, affecting card detection at boot, requiring a power-cycle to fix (I've had luck [increasing msleep from 2000 to 4000](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/sound/usb/quirks.c?h=v5.15-rc1#n1128) to fix this)
 
 These monkey-patch confs fix MOTU M2 / M4 audio issues specifically relating to the first point. 
